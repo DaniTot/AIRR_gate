@@ -1,5 +1,8 @@
 from ImageLoading import ImageLoader
+from HarrisCorner import Harris
 import cv2 as cv
+import numpy as np
+import argparse
 
 
 def main():
@@ -10,6 +13,11 @@ def main():
     ImLo.load_set("train.pickle")
     # Load image
     img = ImLo.load_image()
+
+    # Harris corner detection. Trackbar is used for tuning
+    HarCor = Harris()
+    HarCor.trackbar(img)
+
     # TODO: Method 1.1: Pure SIFT feature matching with the gate
 
     # TODO: Method 1.2: Pure SIFT feature matching with the white checker pattern at corners
